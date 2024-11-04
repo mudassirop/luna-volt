@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luna Volt - Shopping Page</title>
+    <link rel="stylesheet" href="best.css">
+</head>
+<body>
+    <header class="home-header">
+        <div class="home-navbar">
+            <div class="logo">Luna Volt</div>
+            <div class="search">
+                <input type="text" class="home-textinput" placeholder="Search products..." />
+                <button class="button">Search</button>
+            </div>
+            <nav>
+                <a href="index.html" class="navbar-link">Home</a>
+                <!-- <a href="#cart" class="navbar-link">Cart (0)</a> -->
+            </nav>
+        </div>
+    </header>
+
+    <main class="home-main">
+        <div class="home-hero">
+            <h1 class="home-text26">Welcome to Luna Volt</h1>
+            <p class="home-text27">Your one-stop shop for electronic components</p>
+        </div>
+
+        <div class="section-container">
+            <h2 class="section-heading-text1">Shop by Category</h2>
+            <div class="products">
+                <article class="product">
+                    <img src="arduino.png" alt="Arduino" class="category-card-image" />
+                    <h3 class="category-card-text">Arduino</h3>
+                    <span class="item-card-price">$25</span>
+                    <button class="button add-to-cart" data-name="Arduino" data-price="25">Order via Telegram</button>
+                </article>
+                <article class="product">
+                    <img src="power suply.png" alt="Power Supply" class="category-card-image" />
+                    <h3 class="category-card-text">Power Supply</h3>
+                    <span class="item-card-price">$5</span>
+                    <button class="button add-to-cart" data-name="Power Supply" data-price="5">Order via Telegram</button>
+                </article>
+                <article class="product">
+                    <img src="relay module.png" alt="Relay Module" class="category-card-image" />
+                    <h3 class="category-card-text">Relay Module</h3>
+                    <span class="item-card-price">$299</span>
+                    <button class="button add-to-cart" data-name="Relay Module" data-price="299">Order via Telegram</button>
+                </article>
+                <article class="product">
+                    <img src="ressberry pie.png" alt="Raspberry Pi" class="category-card-image" />
+                    <h3 class="category-card-text">Raspberry Pi</h3>
+                    <span class="item-card-price">$149</span>
+                    <button class="button add-to-cart" data-name="Raspberry Pi" data-price="149">Order via Telegram</button>
+                </article>
+                <article class="product">
+                    <img src="mositure identifier.png" alt="Moisture Identifier" class="category-card-image" />
+                    <h3 class="category-card-text">Moisture Identifier</h3>
+                    <span class="item-card-price">$49</span>
+                    <button class="button add-to-cart" data-name="Moisture Identifier" data-price="49">Order via Telegram</button>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <footer id="about" class="home-footer1">
+        <div class="max-width-container">
+            <div class="home-footer2">
+                <div class="home-container19">
+                    <h3 class="home-text42 Heading-3">Luna Volt</h3>
+                    <span class="home-text43">Maharashtra, Thane, Mumbra, India</span>
+                    <span class="home-text46">8976276245</span>
+                </div>
+                <div class="home-links-container">
+                    <div class="home-container20">
+                        <span class="home-text48">Categories</span>
+                        <span class="home-text49">Collections</span>
+                        <span class="home-text50">Modules</span>
+                        <span class="home-text51">LEDs</span>
+                        <span class="home-text52">Lamps</span>
+                        <span class="home-text53">Relays</span>
+                        <span class="home-text54">Electronic</span>
+                    </div>
+                    <div class="home-container21">
+                        <span class="home-text55">Company</span>
+                        <span class="home-text56">Shop</span>
+                        <span class="home-text57">Lookbook</span>
+                        <span class="home-text58">Specials</span>
+                        <span class="home-text59">About</span>
+                        <span class="home-text60">Blog</span>
+                    </div>
+                    <div class="home-container22">
+                        <span class="home-text61">Resources</span>
+                        <span class="home-text62">Contact us</span>
+                        <span class="home-text63">Order</span>
+                        <span class="home-text64">Track your order</span>
+                        <span class="home-text65">Shipping & Delivery</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                const productName = button.getAttribute('data-name');
+                const productPrice = button.getAttribute('data-price');
+
+                // Create Telegram link with pre-filled message
+                const message = `I would like to order ${productName} for $${productPrice}.`;
+                
+                // Use the phone number in international format (e.g., +19876276245)
+                const telegramLink = `https://t.me/+${encodeURIComponent('8976276245')}?text=${encodeURIComponent(message)}`;
+
+                // Open Telegram link in a new tab
+                window.open(telegramLink, '_blank');
+
+                // Alert user
+                alert('Please check your Telegram to send your order.');
+            });
+        });
+    </script>
+    <!-- <script>
+        let cartCount = 0;
+    
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                const productName = button.getAttribute('data-name');
+                const productPrice = button.getAttribute('data-price');
+    
+                // Create Telegram link with pre-filled message
+                const message = `I would like to order ${productName} for $${productPrice}.`;
+                const telegramLink = `https://t.me/+${encodeURIComponent('8976276245')}?text=${encodeURIComponent(message)}`;
+    
+                // Open Telegram link in a new tab
+                window.open(telegramLink, '_blank');
+    
+                // Update cart count
+                cartCount++;
+                document.querySelector('.navbar-link[href="#cart"]').textContent = `Cart (${cartCount})`;
+    
+                // Alert user
+                alert('Please check your Telegram to send your order.');
+            });
+        });
+    </script> -->
+</body>
+</html>
